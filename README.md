@@ -44,7 +44,7 @@ jobs:
 | Input | Required | Default | Description |
 | --- | --- | --- | --- |
 | `production-branch` | yes | | Production branch that pull requests target, for example `main`. |
-| `duckpost-endpoint` | no | `https://duckpost.app/api/ai-release-jobs` | DuckPost backend endpoint. Must use a trusted DuckPost HTTPS host. |
+| `duckpost-endpoint` | no | `https://duckpost.app/api/ai-release-jobs` | DuckPost backend endpoint. Must use HTTPS with host `duckpost.app` or `dev.duckpost.app`. For development, set `https://dev.duckpost.app/api/ai-release-jobs`. |
 | `include-diff-metadata` | no | `true` | Whether to include local git diff metadata. |
 | `timeout-ms` | no | `30000` | Backend request timeout. |
 
