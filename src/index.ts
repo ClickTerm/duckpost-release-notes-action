@@ -49,7 +49,7 @@ export type ActionConfig = {
 };
 
 const DEFAULT_DUCKPOST_ENDPOINT = "https://duckpost.app/api/ai-release-jobs";
-const TRUSTED_DUCKPOST_HOSTS = new Set(["duckpost.app"]);
+const TRUSTED_DUCKPOST_HOSTS = new Set(["duckpost.app", "dev.duckpost.app"]);
 
 export type DiffMetadata =
   | {
