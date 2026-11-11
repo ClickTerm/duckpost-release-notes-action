@@ -19,7 +19,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+          check-latest: true
           cache: npm
+
+      - name: Verify Node is patched for CVE-2026-111497 (Brotli)
+        run: |
+          node -e "const z=require('zlib');if(z.constants.BROTLI_DECODER_ERROR_FORMAT_BLOCK_SWITCH===undefined){console.error('Node '+process.version+' is vulnerable to CVE-2026-111497');process.exit(1)}try{z.brotliDecompressSync(Buffer.from('200010414141fcffff07002228f00b60f7f41f000000','hex'));console.error('invalid brotli accepted');process.exit(1)}catch(e){if(e.code!=='ERR__ERROR_FORMAT_BLOCK_SWITCH')throw e}console.log('CVE-2026-111497: '+process.version+' patched')"
 
       - run: npm ci
       - run: npm run ci
